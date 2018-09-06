@@ -4,7 +4,7 @@ import java.util.Arrays;
 public class ArrayOps {
     private int[] numsArray;
 
-    public void ArrayOps() {
+    public ArrayOps() {
         numsArray = new int[100];
         loadArray();
     }
@@ -17,8 +17,8 @@ public class ArrayOps {
 
     public void printArray() {
         for (int i = 0; i < 100; i++) {
-            System.out.print(numsArray[i]);
-            if ((i % 9) == 0) {
+            System.out.print(numsArray[i] + " ");
+            if (((i % 9) == 0) && (i != 0)) {
                 System.out.println();
             }
         }
