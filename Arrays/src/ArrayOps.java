@@ -1,3 +1,4 @@
+import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class ArrayOps {
@@ -24,7 +25,7 @@ public class ArrayOps {
     }
 
     public int getSum() {
-        int sum;
+        int sum=0;
         for (int i = 0; i < 100; i++) {
             sum += numsArray[i];
         }
@@ -34,14 +35,15 @@ public class ArrayOps {
     public double getMean() {
         int sum = getSum();
         int length = numsArray.length;
-        double mean = sum / lengh;
+        double mean = sum / length;
         return mean;
     }
 
     public double getMedian() {
 //        int[] sortedNumsArray;
         double median;
-        numsArray = numsArray.sort();
+//        numsArray.sort();
+        Arrays.sort(numsArray);
         if ((numsArray.length % 2) == 0) {
             int elmA = numsArray[(numsArray.length/2)];
             int elmB = numsArray[(numsArray.length/2) + 1];
@@ -52,8 +54,9 @@ public class ArrayOps {
     }
 
     public int getArgMax(int[] array) {
-        int max;
-        int argMax;
+        int max = 0;
+        int argMax = 0;
+        int currValue = 0;
         for (int i = 0; i < array.length; i++) {
             currValue = array[i];
             if (currValue > max) {
