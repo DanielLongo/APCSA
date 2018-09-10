@@ -5,7 +5,8 @@ public class Driver {
         System.out.println("Sum: " + array.getSum());
         System.out.println("Mean: " + array.getMean());
         System.out.println("Median: " + array.getMedian());
-        System.out.println("Mode: " + array.getMode());
+        System.out.println("Mode: ");
+        array.getMode();
 
 
     }

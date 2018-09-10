@@ -11,7 +11,7 @@ public class ArrayOps {
 
     public void loadArray() {
         for (int i = 0; i < 100; i++) {
-            numsArray[i] = (int)(Math.random() * 10) + 1;
+            numsArray[i] = (int) (Math.random() * 10) + 1;
         }
     }
 
@@ -25,7 +25,7 @@ public class ArrayOps {
     }
 
     public int getSum() {
-        int sum=0;
+        int sum = 0;
         for (int i = 0; i < 100; i++) {
             sum += numsArray[i];
         }
@@ -45,38 +45,54 @@ public class ArrayOps {
 //        numsArray.sort();
         Arrays.sort(numsArray);
         if ((numsArray.length % 2) == 0) {
-            int elmA = numsArray[(numsArray.length/2)];
-            int elmB = numsArray[(numsArray.length/2) + 1];
+            int elmA = numsArray[(numsArray.length / 2)];
+            int elmB = numsArray[(numsArray.length / 2) + 1];
             median = (elmA + elmB) / 2.;
-        }
-        else median = numsArray[(numsArray.length/2) + 1];
-        return  median;
+        } else median = numsArray[(numsArray.length / 2) + 1];
+        return median;
     }
 
-    public int getArgMax(int[] array) {
+    public int[] getArgMax(int[] array) {
         int max = 0;
         int argMax = 0;
         int currValue = 0;
+        int numMaxes = 0;
         for (int i = 0; i < array.length; i++) {
             currValue = array[i];
             if (currValue > max) {
                 max = currValue;
                 argMax = i;
+                numMaxes = 0;
+            }
+            if (currValue == max) {
+                numMaxes += 1;
             }
         }
-        return argMax;
+        int arrayPos = 0;
+        int[] argMaxes = new int[numMaxes];
+        for (int i = 0; i < array.length; i++) {
+            currValue = array[i];
+            if (currValue == max) {
+                argMaxes[arrayPos] = i;
+                arrayPos += 1;
+            }
+
+        }
+        return argMaxes;
     }
 
-    public int getMode() {
+    public void getMode() {
         int currValue;
         int currValueIndex;
         int[] numValueOccurances = new int[100];
-        for (int i = 0; i < 100; i ++) {
+        for (int i = 0; i < 100; i++) {
             currValue = numsArray[i];
             currValueIndex = currValue - 1;
             numValueOccurances[currValueIndex] += 1;
         }
-        int mode = getArgMax(numValueOccurances);
-        return mode;
+        int[] modes = getArgMax(numValueOccurances);
+        for (int i = 0; i < modes.length; i++) {
+            System.out.print(modes[i] + ",");
+        }
     }
 }
