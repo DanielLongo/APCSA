@@ -5,11 +5,11 @@ public class Student {
 //        studentID = setStudentID;
 //        fullName = setFullName;
 //    }
+
     public void Student() {
         studentID = 000000;
         fullName = "no name";
     }
-
     public String getName() {
         return fullName;
     }
