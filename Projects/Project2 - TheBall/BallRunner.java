@@ -116,7 +116,7 @@ public static void a5() {
              currBallBot = ballBots[i];
              if(currBallBot.canMoveForward(ballWorld) && (ballBotToBounceOff(currBallBot, ballBots) == null)) {
                  currBallBot.moveForward();
-                 currBallBot.setPixelsPerSecond(currBallBot.getPixelsPerSecond() + 1);
+                 currBallBot.setPixelsPerSecond(currBallBot.getPixelsPerSecond() + 2);
                 }
              else {
                  currBallBot.setHeading((currBallBot.getHeading() + 110) % 360);
