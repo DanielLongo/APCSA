@@ -17,15 +17,16 @@ public class Gibberish
         int currStartIndex = 0;
         int currEndIndex = 0;
         String pos;
-        while (true) {
+        while (true) { 
             currStartIndex = sourceString.indexOf("<");
-            if (currStartIndex == -1) return resultString + sourceString.substring(0);
-            resultString += sourceString.substring(0, currStartIndex);
+            if (currStartIndex == -1) return resultString + sourceString.substring(0); //if there are no more "<" return
+            resultString += sourceString.substring(0, currStartIndex); //adds text between start and tag 
             currEndIndex = sourceString.indexOf("</>");
-            pos = sourceString.substring(currStartIndex + 1,currStartIndex+2);
-            System.out.println("pos " + pos); 
+            pos = sourceString.substring(currStartIndex + 1,currStartIndex+2); // gets part of speach
+            //adds random string to final result
             resultString += wordList5000.getRandomWordString(pos);
-            sourceString = sourceString.substring(currEndIndex + 3);
+            //shortens source string so that indexOf will return a new index
+            sourceString = sourceString.substring(currEndIndex + 3); 
         }
     }
 }
