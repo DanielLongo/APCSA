@@ -1,3 +1,5 @@
+package activity2;
+
 /**
  * A program to carry on conversations with a human user.
  * This is the initial version that:  
