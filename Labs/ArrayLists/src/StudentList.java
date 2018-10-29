@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 public class StudentList {
     ArrayList<Student> students;
-    private StudentList() {
+    public StudentList() {
         students = new ArrayList<Student>();
     }
 
@@ -23,9 +23,9 @@ public class StudentList {
     public void printStudent(int index) {
         Student student = students.get(index);
         System.out.println(
-                "First" + student.getFirstName ()  + "/n" +
-                "Middle" + student.getLastName () + "/n" +
-                        "Last" + student.getLastName()
+                "First " + student.getFirstName ()  + "\n" +
+                "Middle " + student.getLastName () + "\n" +
+                        "Last " + student.getLastName()
 
 
         );
