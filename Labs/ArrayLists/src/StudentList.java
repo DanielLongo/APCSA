@@ -49,6 +49,26 @@ public class StudentList {
         }
     }
 
+    public int findStudentIndex(int studentId) {
+        Student currStudent;
+        for (int i = 0; i < students.size (); i++) {
+            currStudent = students.get(i);
+            if (currStudent.getStuNumber () == studentId) {
+                return i;
+            }
+        }
+        System.out.println ("Student Not Found");
+        return -1;
+    }
+
+    public void findStudent() {
+        System.out.print ("Enter student id: ");
+        int id = Integer.parseInt (scr.next ());
+        int index = findStudentIndex (id);
+        if (index > -1) {
+            printStudent (index);
+        }
+    }
 
     public void removeStudent(int index) {
         if (index == -1) {
@@ -61,6 +81,24 @@ public class StudentList {
         return students.get(index);
     }
 
+    public void removeStudent() {
+        System.out.print ("Enter student id: ");
+        int id = Integer.parseInt (scr.next ());
+        int index = findStudentIndex (id);
+        if (index > -1) {
+            students.remove (id);
+            System.out.println (students.get (id).getLastName ( ) + " was removed");
+        }
+        else {
+            System.out.println("Student not found");
+        }
+    }
+    public void printAllStudents() {
+        System.out.println("Printing all studetns");
+        for (int i = 0; i < students.size (); i++) {
+            printStudent (i);
+        }
+     }
     public void printStudent(int index) {
         if (index == -1) {
             index = students.size () -1;
@@ -77,5 +115,22 @@ public class StudentList {
                         "Student Id: " + student.getStuNumber () + "\n" +
                         "Student GPA: " + student.getGpa () + "\n"
         );
+    }
+
+    public void clearStudents() {
+        students = new ArrayList<Student> ();
+    }
+
+    public void modifyStudent() {
+        System.out.print ("Enter student id: ");
+        int id = Integer.parseInt (scr.next ());
+        int index = findStudentIndex (id);
+        if (index > -1) {
+            students.remove (id);
+            createStudent ();
+        }
+        else {
+            System.out.println("Student not found");
+        }
     }
 }
