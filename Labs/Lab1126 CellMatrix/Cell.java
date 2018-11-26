@@ -21,12 +21,19 @@ public class Cell
      * ++++++++++++++  methods
      */
     
-    //  Load neighbor cells into the neighbors array
-    public void loadNeighbors(){
-        
-    }
-    
     public int getInt(){
         return x;
+    }
+    
+    public void setNeighbors(Cell[] neighbors) {
+        this.neighbors = neighbors;
+    }
+    
+    public int getNeighborSum() {
+        int sum = 0;
+        for (Cell cell: neighbors) {
+            sum += cell.getInt();
+        }
+        return sum;
     }
 }
